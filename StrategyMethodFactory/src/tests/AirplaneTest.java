@@ -9,8 +9,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import vehicles.Airplane;
+import vehicles.AirplaneFactory;
 import vehicles.FlyingFactory;
 import vehicles.Flying;
+import vehicles.HarrierFactory;
+import vehicles.ModelPlaneFactory;
+import vehicles.PassengerAirplaneFactory;
 
 import vehicles.LiftOff;
 import vehicles.LiftOffFactory;
@@ -36,11 +40,12 @@ public class AirplaneTest {
 				
 		String expectedOutput = "Like a fighter jet";
 		String stringReturned = null;
-		
-		Flying fly = flyingFactory.createFlying("Fighter Jet");
-
-		LiftOff liftOff = liftOffFactory.createLiftOff("Fighter Jet");
-
+		AirplaneFactory harrierFactory = new HarrierFactory();
+//		Flying fly = flyingFactory.createFlying("Fighter Jet");
+		Flying fly = harrierFactory.createFlying();
+//		LiftOff liftOff = liftOffFactory.createLiftOff("Fighter Jet");
+		LiftOff liftOff = harrierFactory.createLiftOff();
+				
 		Airplane classUnderTest = new Airplane(liftOff,fly);
 
 		stringReturned = classUnderTest.howDoYouFly();
@@ -55,9 +60,12 @@ public class AirplaneTest {
 				
 		String expectedOutput = "I don't Fly";
 		String stringReturned = null;
-		
-		Flying fly = flyingFactory.createFlying("Model Airplane");
-		LiftOff liftOff = liftOffFactory.createLiftOff("Horizontally");
+
+//		Flying fly = flyingFactory.createFlying("Model Airplane");
+//		LiftOff liftOff = liftOffFactory.createLiftOff("Horizontally");
+		AirplaneFactory modelPlaneFactory = new ModelPlaneFactory();
+		Flying fly = modelPlaneFactory .createFlying();
+		LiftOff liftOff = modelPlaneFactory.createLiftOff();
 
 		Airplane classUnderTest = new Airplane(liftOff,fly);
 
@@ -72,9 +80,12 @@ public class AirplaneTest {
 				
 		String expectedOutput = "Like a passenger airplane";
 		String stringReturned = null;
+		AirplaneFactory passengerAirplaneFactory = new PassengerAirplaneFactory();
+		Flying fly = passengerAirplaneFactory.createFlying();
+		LiftOff liftOff = passengerAirplaneFactory.createLiftOff();
 		
-		Flying fly = flyingFactory.createFlying("Passenger Airplane");
-		LiftOff liftOff =  liftOffFactory.createLiftOff("Horizontally");
+//		Flying fly = flyingFactory.createFlying("Passenger Airplane");
+//		LiftOff liftOff =  liftOffFactory.createLiftOff("Horizontally");
 
 		Airplane classUnderTest = new Airplane(liftOff,fly);
 
@@ -90,10 +101,13 @@ public class AirplaneTest {
 				
 		String expectedOutput = "Vertically";
 		String stringReturned = null;
-
-		Flying fly = flyingFactory.createFlying("Fighter Jet");
-		LiftOff liftOff =  liftOffFactory.createLiftOff("Vertically");
-
+		
+		AirplaneFactory HarrierFactory = new HarrierFactory();
+//		Flying fly = flyingFactory.createFlying("Fighter Jet");
+//		LiftOff liftOff =  liftOffFactory.createLiftOff("Vertically");
+		Flying fly = HarrierFactory.createFlying();
+		LiftOff liftOff = HarrierFactory.createLiftOff();
+		
 		Airplane classUnderTest = new Airplane(liftOff,fly);
 
 		stringReturned = classUnderTest.howDoYouLiftOff();

@@ -121,10 +121,12 @@ public class AirplaneTest {
 				
 		String expectedOutput = "I don't LiftOff";
 		String stringReturned = null;
-
-		Flying fly = flyingFactory.createFlying("Fighter Jet");
-		LiftOff liftOff = liftOffFactory.createLiftOff("don't");;
-
+		AirplaneFactory HarrierFactory = new HarrierFactory();
+//		Flying fly = flyingFactory.createFlying("Fighter Jet");
+//		LiftOff liftOff = liftOffFactory.createLiftOff("don't");;
+		Flying fly = HarrierFactory.createFlying();
+		LiftOff liftOff = HarrierFactory.createLiftOff();
+		
 		Airplane classUnderTest = new Airplane(liftOff,fly);
 
 		stringReturned = classUnderTest.howDoYouLiftOff();
@@ -138,9 +140,13 @@ public class AirplaneTest {
 				
 		String expectedOutput = "Horizontally";
 		String stringReturned = null;
-
-		Flying fly = flyingFactory.createFlying("Fighter Jet");
-		LiftOff liftOff = liftOffFactory.createLiftOff("Horizontally");
+		
+		AirplaneFactory HarrierFactory = new HarrierFactory();
+		Flying fly = HarrierFactory.createFlying();
+		LiftOff liftOff = HarrierFactory.createLiftOff();		
+		
+//		Flying fly = flyingFactory.createFlying("Fighter Jet");
+//		LiftOff liftOff = liftOffFactory.createLiftOff("Horizontally");
 
 		Airplane classUnderTest = new Airplane(liftOff,fly);
 

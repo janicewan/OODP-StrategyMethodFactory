@@ -25,13 +25,10 @@ import vehicles.LiftOffFactory;
  */
 public class AirplaneTest {
 
-	private static FlyingFactory flyingFactory;
-	private static LiftOffFactory liftOffFactory;
-	
 	@BeforeClass
 	public static void onlyOnce(){
-		flyingFactory = new FlyingFactory();
-		liftOffFactory = new LiftOffFactory();
+		new FlyingFactory();
+		new LiftOffFactory();
 	}
 
 
@@ -41,9 +38,7 @@ public class AirplaneTest {
 		String expectedOutput = "Like a fighter jet";
 		String stringReturned = null;
 		AirplaneFactory harrierFactory = new HarrierFactory();
-//		Flying fly = flyingFactory.createFlying("Fighter Jet");
 		Flying fly = harrierFactory.createFlying();
-//		LiftOff liftOff = liftOffFactory.createLiftOff("Fighter Jet");
 		LiftOff liftOff = harrierFactory.createLiftOff();
 				
 		Airplane classUnderTest = new Airplane(liftOff,fly);
@@ -61,8 +56,6 @@ public class AirplaneTest {
 		String expectedOutput = "I don't Fly";
 		String stringReturned = null;
 
-//		Flying fly = flyingFactory.createFlying("Model Airplane");
-//		LiftOff liftOff = liftOffFactory.createLiftOff("Horizontally");
 		AirplaneFactory modelPlaneFactory = new ModelPlaneFactory();
 		Flying fly = modelPlaneFactory .createFlying();
 		LiftOff liftOff = modelPlaneFactory.createLiftOff();
@@ -83,9 +76,7 @@ public class AirplaneTest {
 		AirplaneFactory passengerAirplaneFactory = new PassengerAirplaneFactory();
 		Flying fly = passengerAirplaneFactory.createFlying();
 		LiftOff liftOff = passengerAirplaneFactory.createLiftOff();
-		
-//		Flying fly = flyingFactory.createFlying("Passenger Airplane");
-//		LiftOff liftOff =  liftOffFactory.createLiftOff("Horizontally");
+
 
 		Airplane classUnderTest = new Airplane(liftOff,fly);
 
